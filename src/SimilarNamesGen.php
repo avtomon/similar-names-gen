@@ -18,21 +18,21 @@ class SimilarNamesGen
      *
      * @var array
      */
-    private $additionalStrings = [];
+    protected $additionalStrings = [];
 
     /**
      * Количество возвращаемых значений
      *
      * @var int
      */
-    private $count = 7;
+    protected $count = 7;
 
     /**
      * Разделитель для частей имен
      *
      * @var string
      */
-    private $separator = '';
+    protected $separator = '';
 
     /**
      * SimilarNamesGen constructor.
