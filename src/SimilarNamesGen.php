@@ -48,16 +48,31 @@ class SimilarNamesGen
         $this->separator = $separator;
     }
 
+    /**
+     * Установить количество возвращаемых значений
+     *
+     * @param int $count
+     */
     public function setCount(int $count): void
     {
         $this->count = $count;
     }
 
+    /**
+     * Установить набор суффиков
+     *
+     * @param array $additionalStrings
+     */
     public function setAdditionalStrings(array $additionalStrings): void
     {
         $this->additionalStrings = $additionalStrings;
     }
 
+    /**
+     * Установить разделитель частей имен
+     *
+     * @param string $separator
+     */
     public function setSeparator(string $separator): void
     {
         $this->separator = $separator;
@@ -86,6 +101,8 @@ class SimilarNamesGen
      */
     public static function staticNamesGenerator(string $existingName, array $additionalStrings, array $settings = []): array
     {
+        $additionalStrings = array_filter($additionalStrings);
+
         if (!$additionalStrings) {
             return [];
         }
