@@ -1,16 +1,24 @@
 <?php
 
-/**
- * Класс реализующий функционал генерации имен похожих на поступившее на вход
- * путем добавления различных вариаций суффиксов
- */
-
 namespace avtomon;
 
+/**
+ * Класс ошибок
+ *
+ * Class SimilarNamesGenException
+ * @package avtomon
+ */
 class SimilarNamesGenException extends CustomException
 {
 }
 
+/**
+ * Класс реализующий функционал генерации имен похожих на поступившее на вход
+ * путем добавления различных вариаций суффиксов
+ *
+ * Class SimilarNamesGen
+ * @package avtomon
+ */
 class SimilarNamesGen
 {
     /**
@@ -94,7 +102,7 @@ class SimilarNamesGen
      * Статический генератор
      *
      * @param string $existingName - какому имени генерируем похожие
-     * @param int $count - количество возвращаемых значений
+     * @param array $additionalStrings - какие подстроки можно добавлять
      * @param array $settings - настройки
      *
      * @return array
@@ -115,11 +123,11 @@ class SimilarNamesGen
             $settings['separator'] = '';
         }
 
-        $strCount = count($additionalStrings) - 1;
+        $strCount = \count($additionalStrings) - 1;
         $resultNames = [];
         $func = function ($func, $str) use (&$existingName, &$additionalStrings, &$strCount, &$settings, &$resultNames): void {
             for ($i = 0; $i <= $strCount; $i++) {
-                if (!in_array($additionalStrings[$i], $str) && count($resultNames) < $settings['count']) {
+                if (!\in_array($additionalStrings[$i], $str, true) && \count($resultNames) < $settings['count']) {
                     $tmp = array_merge($str, [$additionalStrings[$i]]);
                     $resultNames[] = implode($settings['separator'], array_merge([$existingName], $tmp));
                     $func($func, $tmp);
