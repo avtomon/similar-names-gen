@@ -1,7 +1,6 @@
 {
     "name": "avtomon/similarNamesGen",
     "description": "Similar names generator, such as logins, subdomains and other",
-    "type": "project",
     "minimum-stability": "dev",
     "config": {
         "process-timeout": 1800
