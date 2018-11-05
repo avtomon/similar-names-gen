@@ -1,10 +1,6 @@
 {
-    "name": "avtomon/similarNamesGen",
+    "name": "avtomon/similar-names-gen",
     "description": "Similar names generator, such as logins, subdomains and other",
-    "minimum-stability": "dev",
-    "config": {
-        "process-timeout": 1800
-    },
     "autoload": {
         "psr-4": {
             "avtomon\\": "src/"
