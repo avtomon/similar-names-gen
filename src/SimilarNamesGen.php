@@ -8,7 +8,7 @@ namespace avtomon;
  * Class SimilarNamesGenException
  * @package avtomon
  */
-class SimilarNamesGenException extends CustomException
+class SimilarNamesGenException extends \Exception
 {
 }
 
